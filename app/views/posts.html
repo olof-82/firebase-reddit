@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Links</div>
+  <table class="table table-striped">
+    <tbody>
+    <tr ng-repeat="post in posts">
+      <td>
+        <a ng-href="{{post.url}}" class="">{{post.title}}</a>
+      </td>
+      <td>
+        <a ng-click="deletePost($index)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"> Delete</span></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Add New Post</div>
+  <div class="panel-body">
+    <form class="form-horizontal" ng-submit="addPost()">
+      <input class="form-control" type="text" ng-model="post.title" placeholder="Title"/><br/>
+      <input class="form-control" type="url" ng-model="post.url" placeholder="Link"/><br/>
+      <button class="btn btn-primary pull-right" type="submit">
+        <span class="glyphicon glyphicon-plus-sign"></span> Add Post
+      </button>
+      <br/>
+
+      <p class="text-muted">Posts: <span class="badge">{{posts}}</span></p>
+      <p class="text-muted">Post: <span class="badge">{{post}}</span></p>
+    </form>
+  </div>
+</div>
