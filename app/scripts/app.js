@@ -2,7 +2,8 @@
 
 var app = angular.module('firebaseRedditApp', [
   'ngRoute',
-  'redditControllers'
+  'redditControllers',
+  'redditServices'
 ]);
 
 app.config(['$routeProvider', function ($routeProvider) {

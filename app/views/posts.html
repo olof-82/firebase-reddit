@@ -2,12 +2,12 @@
   <div class="panel-heading">Links</div>
   <table class="table table-striped">
     <tbody>
-    <tr ng-repeat="post in posts">
+    <tr ng-repeat="(postId, post) in posts">
       <td>
-        <a ng-href="{{post.url}}" class="">{{post.title}}</a>
+        <a ng-href="{{post.url}}" class="btn btn-default">{{post.title | uppercase}}</a>
       </td>
       <td>
-        <a ng-click="deletePost($index)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"> Delete</span></a>
+        <a ng-click="deletePost(postId)" class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"> Remove</span></a>
       </td>
     </tr>
     </tbody>
@@ -20,13 +20,11 @@
     <form class="form-horizontal" ng-submit="addPost()">
       <input class="form-control" type="text" ng-model="post.title" placeholder="Title"/><br/>
       <input class="form-control" type="url" ng-model="post.url" placeholder="Link"/><br/>
-      <button class="btn btn-primary pull-right" type="submit">
-        <span class="glyphicon glyphicon-plus-sign"></span> Add Post
-      </button>
+      <button class="btn btn-primary pull-left" type="submit"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>
       <br/>
-
+      <!--
       <p class="text-muted">Posts: <span class="badge">{{posts}}</span></p>
-      <p class="text-muted">Post: <span class="badge">{{post}}</span></p>
+      <p class="text-muted">Post: <span class="badge">{{post}}</span></p>-->
     </form>
   </div>
 </div>
