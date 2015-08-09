@@ -3,8 +3,11 @@
 var app = angular.module('firebaseRedditApp', [
   'ngRoute',
   'redditControllers',
-  'redditServices'
+  'redditServices',
+  'firebase'
 ]);
+
+app.constant('FIREBASE_URL', 'https://radiant-heat-3801.firebaseio.com/');
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider

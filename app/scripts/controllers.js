@@ -12,19 +12,16 @@ redditControllers.controller('MainCtrl', ['$scope', function ($scope) {
 
 redditControllers.controller('PostsCtrl', ['$scope', 'Post', function ($scope, Post) {
   $scope.post = {url: "http://", title: ""};
-  $scope.posts = Post.get();
+  $scope.posts = Post.all;
 
-  $scope.addPost = function() {
-    Post.save($scope.post, function(ref) {
-      $scope.posts[ref.name] = $scope.post;
+  $scope.addPost = function () {
+    Post.create($scope.post).then(function () {
       $scope.post = {url: "http://", title: ""};
     });
   };
 
-  $scope.deletePost = function(postId) {
-    Post.delete({id: postId}, function() {
-      delete $scope.posts[postId];
-    });
+  $scope.deletePost = function (post) {
+    Post.delete(post);
   };
 
 }]);
